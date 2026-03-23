@@ -1,6 +1,17 @@
 from flask import Flask, jsonify, render_template, request
 from logic import get_build
-from perks import survivor_perks, exhaustion_perks, healing_perks
+from perks import (
+    anti_tunnel_perks,
+    aura_perks,
+    chase_perks,
+    exhaustion_perks,
+    generator_perks,
+    healing_perks,
+    killer_perks,
+    stealth_perks,
+    survivor_perks,
+    team_perks,
+)
 
 app = Flask(
     __name__,
@@ -23,6 +34,20 @@ def generate():
         pool = exhaustion_perks
     elif mode == "healing":
         pool = healing_perks
+    elif mode == "team":
+        pool = team_perks
+    elif mode == "stealth":
+        pool = stealth_perks
+    elif mode == "chase":
+        pool = chase_perks
+    elif mode == "generator":
+        pool = generator_perks
+    elif mode == "aura":
+        pool = aura_perks
+    elif mode == "anti_tunnel":
+        pool = anti_tunnel_perks
+    elif mode == "killer":
+        pool = killer_perks
     else:
         pool = survivor_perks
 
