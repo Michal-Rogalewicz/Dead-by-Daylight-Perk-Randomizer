@@ -25,6 +25,18 @@ def print_build(build):
 def get_build(perk_pool):
     return random.sample(perk_pool, 4)
 
+def reroll_perk(perk_pool, current_build, index):
+    if index < 0 or index >= len(current_build):
+        raise ValueError("Invalid perk index.")
+
+    available_perks = [perk for perk in perk_pool if perk not in current_build]
+    if not available_perks:
+        raise ValueError("No perks available to reroll.")
+
+    updated_build = list(current_build)
+    updated_build[index] = random.choice(available_perks)
+    return updated_build
+
 def choose_mode():
     print("\n1 - Survivor Any\n")
     print("\n2 - Exhaustion\n")

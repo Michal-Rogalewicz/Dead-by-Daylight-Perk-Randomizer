@@ -5,26 +5,36 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <main class="app-shell">
+        <section class="hero">
+            <p class="eyebrow">Dead by Daylight</p>
+            <h1>Perk Randomizer</h1>
+            <p class="hero-copy">Generate a build, read each perk at a glance, and reroll individual slots without losing the rest of the setup.</p>
+        </section>
 
-    <h1>DBD Perk Randomizer</h1>
+        <section class="controls">
+            <label class="control-group" for="mode">
+                <span>Mode</span>
+                <select id="mode">
+                    <option value="any">Survivor Any</option>
+                    <option value="exhaustion">Exhaustion</option>
+                    <option value="healing">Healing</option>
+                    <option value="team">Team</option>
+                    <option value="stealth">Stealth</option>
+                    <option value="chase">Chase</option>
+                    <option value="generator">Generator</option>
+                    <option value="aura">Aura</option>
+                    <option value="anti_tunnel">Anti Tunnel</option>
+                    <option value="killer">Killer</option>
+                </select>
+            </label>
 
-    <select id="mode">
-        <option value="any">Survivor Any</option>
-        <option value="exhaustion">Exhaustion</option>
-        <option value="healing">Healing</option>
-        <option value="team">Team</option>
-        <option value="stealth">Stealth</option>
-        <option value="chase">Chase</option>
-        <option value="generator">Generator</option>
-        <option value="aura">Aura</option>
-        <option value="anti_tunnel">Anti Tunnel</option>
-        <option value="killer">Killer</option>
-    </select>
+            <button id="generate-button" type="button">Generate Build</button>
+        </section>
 
-    <button onclick="generate()">Generate Build</button>
-
-    <ul id="result"></ul>
-
+        <p id="status" class="status" aria-live="polite"></p>
+        <section id="result" class="perk-grid" aria-live="polite"></section>
+    </main>
     <script src="/static/script.js"></script>
 </body>
 </html>
